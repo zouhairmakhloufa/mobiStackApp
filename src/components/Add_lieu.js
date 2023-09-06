@@ -89,7 +89,7 @@ export default function Add_lieu() {
             className="text-primary text-uppercase"
             style={{ letterSpacing: 5 }}
           ></h6>
-          <h1>{ title } Lieu</h1>
+          <h1>{ title } product</h1>
         </div>
         <div className="row justify-content-center">
           <div className="col-lg-8">
@@ -101,7 +101,7 @@ export default function Add_lieu() {
                     <input
                       type="text"
                       className="form-control p-4"
-                      placeholder=" Nom Lieu"
+                      placeholder=" Nom produit"
                       value={name}
                       onChange={(event) => setName(event.target.value)}
                     />
@@ -111,7 +111,7 @@ export default function Add_lieu() {
                     <input
                       type="email"
                       className="form-control p-4"
-                      placeholder="Adress"
+                      placeholder="reference"
                       value={address}
                       onChange={(event) => setAddress(event.target.value)}
                     />

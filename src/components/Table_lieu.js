@@ -27,7 +27,7 @@ export default function Table_lieu() {
   <div className="container py-5">
     <div className="text-center mb-3 pb-3">
       <h6 className="text-primary text-uppercase" style={{letterSpacing: 5}}></h6>
-      <h1>Table Lieu</h1>
+      <h1>Table product</h1>
     </div>
     <div className="row justify-content-center">
       <div className="col-lg-12">

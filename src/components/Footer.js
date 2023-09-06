@@ -7,7 +7,7 @@ export default function Footer() {
     <div className="row pt-5">
       <div className="col-lg-3 col-md-6 mb-5">
         <a href className="navbar-brand">
-          <h1 className="text-primary"><span className="text-white">Visit Tun</span>isie</h1>
+          <h1 className="text-primary"><span className="text-white">Maison</span>Art</h1>
         </a>
         <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor</p>
         <h6 className="text-white text-uppercase mt-4 mb-3" style={{letterSpacing: 5}}>Follow Us</h6>
@@ -44,9 +44,9 @@ export default function Footer() {
       </div>
       <div className="col-lg-3 col-md-6 mb-5">
         <h5 className="text-white text-uppercase mb-4" style={{letterSpacing: 5}}>Contact Us</h5>
-        <p><i className="fa fa-map-marker-alt mr-2" />123 Street, New York, USA</p>
-        <p><i className="fa fa-phone-alt mr-2" />+012 345 67890</p>
-        <p><i className="fa fa-envelope mr-2" />info@example.com</p>
+        <p><i className="fa fa-map-marker-alt mr-2" />Eljem Mahdia</p>
+        <p><i className="fa fa-phone-alt mr-2" />+216 26 765 720</p>
+        <p><i className="fa fa-envelope mr-2" />Maisonart@gmail.com</p>
         <h6 className="text-white text-uppercase mt-4 mb-3" style={{letterSpacing: 5}}>Newsletter</h6>
         <div className="w-100">
           <div className="input-group">

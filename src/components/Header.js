@@ -32,7 +32,7 @@ const [CurrentUser,setCurrentUser]=useState({})
               <div className="d-inline-flex align-items-center">
                 <p>
                   <i className="fa fa-envelope mr-2" />
-                  visit-tunisia@gmail.com
+                  MaisonArt@gmail.com
                 </p>
                 <p className="text-body px-3">|</p>
                 <p>
@@ -73,7 +73,7 @@ const [CurrentUser,setCurrentUser]=useState({})
           <nav className="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
             <Link to="/" className="navbar-brand">
               <h1 className="m-0 text-primary">
-                <span className="text-dark">Visit Tun</span>isie
+                <span className="text-dark">Maison</span>Art
               </h1>
             </Link>
             <button
@@ -97,13 +97,13 @@ const [CurrentUser,setCurrentUser]=useState({})
                    Home{" "}
                  </Link>
                  <Link to="/lieux" className="nav-item nav-link">
-                   Lieu
+                   product
                  </Link>
                  <Link to="/Add_lieu" className="nav-item nav-link">
-                   Add Lieu
+                   Add product
                  </Link>
                  <Link to="/TableLieu" className="nav-item nav-link">
-                   Table Lieux
+                   Table product
                  </Link>
  
                  <Link to="/contact" className="nav-item nav-link">
@@ -122,10 +122,10 @@ const [CurrentUser,setCurrentUser]=useState({})
                   Home{" "}
                 </Link>
                 <Link to="/lieux" className="nav-item nav-link">
-                  Lieu
+                product
                 </Link>
                 <Link to="/Add_lieu" className="nav-item nav-link">
-                   Add Lieu
+                   Add product
                  </Link>
               
 
