@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Table_lieu() {
+export default function Table_Product() {
   const navigate = useNavigate();
   const [lieu, setLieu] = useState([]);
   useEffect(() => {

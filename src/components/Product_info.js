@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { useCart } from "../Context/CartProvider";
+import Panier from "./Panier";
 
-const Lieu_info = ({ user }) => {
+const Product_info = ({ user,product }) => {
   const params = useParams();
   const [lieu, setLieu] = useState({});
   const [comment, setComment] = useState("");
   const [Allcomments, setAllcomments] = useState([]);
+  const [panier, setPanier] = useState([]);
+  const [nombreProduitsPanier, setNombreProduitsPanier] = useState(0);
+
+  const [show5, setShow5] = useState(false);
+
 
   useEffect(() => {
     if (params.id) {
@@ -40,9 +49,63 @@ const Lieu_info = ({ user }) => {
       getAllCommentById()
     });
   };
+  // function ajouterAuPanier(lieu) {
+  //   console.log("fffffff",lieu)
+  //   // Copiez le panier existant et ajoutez l'identifiant du nouveau produit
+  //   const nouveauPanier = [...panier, lieu.id]; // Stockez l'identifiant du produit
+  //   console.log("nnnnn",nouveauPanier)
+  //   setPanier(nouveauPanier);
+  //   console.log("bbbbbbbbbb",panier)
 
+  
+  //   // Mettez à jour le nombre de produits dans le panier
+  //   setNombreProduitsPanier(nouveauPanier.length);
+  //   console.log("ppppp",nombreProduitsPanier)
+  
+  //   // Enregistrez le panier dans le localStorage
+  //   localStorage.setItem('panier', JSON.stringify(nouveauPanier));
+  // }
+  function ajouterAuPanier(lieu) {
+    console.log("fffffff", lieu);
+    
+    // Copiez le panier existant et ajoutez l'identifiant du nouveau produit
+    const nouveauPanier = [...panier, lieu.id]; // Stockez l'identifiant du produit
+    console.log("nnnnn", nouveauPanier);
+    
+    // Mettez à jour le panier avec la nouvelle valeur
+    setPanier(nouveauPanier);
+  
+    // Mettez à jour le nombre de produits dans le panier
+    setNombreProduitsPanier(nouveauPanier.length);
+  
+    // Enregistrez le panier dans le localStorage
+    localStorage.setItem('panier', JSON.stringify(nouveauPanier));
+  }
+  // Utilisez useEffect pour observer la mise à jour du panier
+useEffect(() => {
+  console.log("bbbbbbbbbb", panier);
+}, [panier]);
+  
+  // const { addToCart } = useCart(); // Use the useCart hook
 
+  // const handleAddToCart = () => {
+  //   addToCart(product);
+  // };
 
+  useEffect(() => {
+    if (params.id) {
+      getAllLieuById();
+      getAllCommentById();
+  
+      // Récupérez le panier depuis le localStorage
+      const storedPanier = JSON.parse(localStorage.getItem('panier'));
+      if (storedPanier) {
+        setPanier(storedPanier);
+        setNombreProduitsPanier(storedPanier.length);
+      }
+    }
+  }, []);
+  
   return (
     <div className="container-fluid py-5">
       <div className="container py-5">
@@ -73,7 +136,21 @@ const Lieu_info = ({ user }) => {
                 <p>{lieu.description}</p>
               </div>
             </div>
+            <button 
+             onClick={() => ajouterAuPanier(lieu)} 
+            className="btn btn-primary">
+              Ajouter au panier
+            </button>
 
+         { show5 ?(
+          <>
+          <Panier panier={panier} lieu={lieu}/></>
+         ) :( <div className="nav-item">
+        <Link to="/panier" className="nav-link">
+          <FontAwesomeIcon icon={faShoppingCart} />
+          <span className="badge badge-pill badge-primary">{nombreProduitsPanier}</span>
+        </Link>
+      </div>)}
             {Allcomments.map((value,key)=>(
               <div key={key} className="bg-white" style={{ padding: 30, marginBottom: 30 }}>
               <h4 className="text-uppercase mb-4" style={{ letterSpacing: 5 }}>
@@ -98,6 +175,7 @@ const Lieu_info = ({ user }) => {
                   </p>
                 </div>
               </div>
+            
             </div>
             )
 
@@ -140,7 +218,7 @@ const Lieu_info = ({ user }) => {
   );
 };
 
-Lieu_info.propTypes = {
+Product_info.propTypes = {
   user: PropTypes.object,
 };
 
@@ -149,4 +227,4 @@ const mapStateToProps = (state) => {
     user: state.userData,
   };
 };
-export default connect(mapStateToProps)(Lieu_info);
+export default connect(mapStateToProps)(Product_info);

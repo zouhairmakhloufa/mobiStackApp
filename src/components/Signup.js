@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -22,6 +23,7 @@ export default function Signup() {
         "http://localhost:5000/user/signup",
         registered
       );
+      toast("lOGIN SUCCESSFULY")
       console.log("user", user);
     } catch (err) {}
     setEmail("");

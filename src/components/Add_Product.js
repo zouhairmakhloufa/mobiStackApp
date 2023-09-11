@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function Add_lieu() {
+export default function Add_Product() {
   const params = useParams();
   const navigate = useNavigate();
 
@@ -77,7 +77,7 @@ export default function Add_lieu() {
     }
 
     setTimeout(() => {
-      navigate("/Lieux");
+      navigate("/product");
     }, 1000);
   };
 

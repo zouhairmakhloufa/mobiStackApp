@@ -9,7 +9,8 @@ import { save, load } from "redux-localstorage-simple";
 import { Provider } from "react-redux";
 import rootReducer from "./redux/reducers/rootReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
-
+import { PanierProvider } from './components/PanierContext';
+// import { store } from "react-redux";
 
 const store = createStore(
   rootReducer,
@@ -23,7 +24,9 @@ root.render(
   
   <React.StrictMode>
         <Provider store={store}>
+        <PanierProvider>
      <App />
+     </PanierProvider>
      </Provider>
   </React.StrictMode>
 );

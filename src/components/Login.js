@@ -3,7 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { addConnectedUser } from "../redux/action/AuthAction";
 import { connect } from "react-redux";
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Login = ({ addConnectedUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,6 +13,30 @@ const Login = ({ addConnectedUser }) => {
 
   useEffect(() => {}, []);
 
+  // const onSubmit = async () => {
+  //   const registered = {
+  //     email,
+  //     password,
+  //   };
+  //   try {
+  //     const user = await axios.post(
+  //       "http://localhost:5000/user/login",
+  //       registered
+  //     );
+  //     if (user.data.message === "2") {
+  //       // localStorage.setItem("connectedUser", JSON.stringify(user.data.user));
+  //       addConnectedUser(user.data.user);
+  //       navigate("/");
+  //       setmsgErr("");
+  //     }
+  //     if (user.data.message === "0") {
+  //       setmsgErr("Verfier Email");
+  //     }
+  //     if (user.data.message === "1") {
+  //       setmsgErr("Verfier Password");
+  //     }
+  //   } catch (err) {}
+  // };
   const onSubmit = async () => {
     const registered = {
       email,
@@ -27,16 +52,27 @@ const Login = ({ addConnectedUser }) => {
         addConnectedUser(user.data.user);
         navigate("/");
         setmsgErr("");
+        toast.success("Login successful!", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 3000, // Set the duration of the toast message
+        });
       }
       if (user.data.message === "0") {
-        setmsgErr("Verfier Email");
+        setmsgErr("Verify Email");
       }
       if (user.data.message === "1") {
-        setmsgErr("Verfier Password");
+        setmsgErr("Verify Password");
       }
-    } catch (err) {}
+    } catch (err) {
+      // Handle errors here
+    }
   };
-
+  
+  
+  
+  
+  
+  
   return (
     <div
       className="container-fluid bg-registration py-5"
