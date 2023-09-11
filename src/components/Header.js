@@ -170,11 +170,7 @@ const [CurrentUser,setCurrentUser]=useState({})
                 <Link to="/product" className="nav-item nav-link">
                 product
                 </Link>
-                <Link to="/Add_lieu" className="nav-item nav-link">
-                   Add product
-                 </Link>
-              
-
+                
                 <Link to="/contact" className="nav-item nav-link">
                   Contact
                 </Link>
