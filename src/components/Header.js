@@ -7,10 +7,11 @@ import { connect, useSelector } from "react-redux";
 import { deleteConnectedUser } from "../redux/action/AuthAction";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { usePanier } from "./PanierContext";
 
- const Header=({ user,deleteConnectedUser })=> {
+
+ const Header=({ user,deleteConnectedUser, })=> {
+  // const { nombreProduitsPanier } = usePanier(); // Accédez à nombreProduitsPanier depuis le contexte
   const { nombreProduitsPanier } = usePanier(); // Accédez à nombreProduitsPanier depuis le contexte
 console.log("ssssssssss",nombreProduitsPanier)
   const [panier, setPanier] = useState([]);

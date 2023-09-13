@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "../Context/CartProvider";
 import Panier from "./Panier";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Product_info = ({ user,product }) => {
   const params = useParams();
@@ -49,48 +51,32 @@ const Product_info = ({ user,product }) => {
       getAllCommentById()
     });
   };
-  // function ajouterAuPanier(lieu) {
-  //   console.log("fffffff",lieu)
-  //   // Copiez le panier existant et ajoutez l'identifiant du nouveau produit
-  //   const nouveauPanier = [...panier, lieu.id]; // Stockez l'identifiant du produit
-  //   console.log("nnnnn",nouveauPanier)
-  //   setPanier(nouveauPanier);
-  //   console.log("bbbbbbbbbb",panier)
-
-  
-  //   // Mettez à jour le nombre de produits dans le panier
-  //   setNombreProduitsPanier(nouveauPanier.length);
-  //   console.log("ppppp",nombreProduitsPanier)
-  
-  //   // Enregistrez le panier dans le localStorage
-  //   localStorage.setItem('panier', JSON.stringify(nouveauPanier));
-  // }
   function ajouterAuPanier(lieu) {
-    console.log("fffffff", lieu);
-    
-    // Copiez le panier existant et ajoutez l'identifiant du nouveau produit
-    const nouveauPanier = [...panier, lieu.id]; // Stockez l'identifiant du produit
-    console.log("nnnnn", nouveauPanier);
-    
-    // Mettez à jour le panier avec la nouvelle valeur
-    setPanier(nouveauPanier);
-  
-    // Mettez à jour le nombre de produits dans le panier
-    setNombreProduitsPanier(nouveauPanier.length);
-  
-    // Enregistrez le panier dans le localStorage
-    localStorage.setItem('panier', JSON.stringify(nouveauPanier));
-  }
+  console.log("fffffff", lieu);
+
+  // Copiez le panier existant et ajoutez l'objet lieu complet au panier
+  const nouveauPanier = [...panier, lieu]; // Ajoutez tout l'objet lieu
+  console.log("nnnnn", nouveauPanier);
+
+  // Mettez à jour le panier avec la nouvelle valeur
+  setPanier(nouveauPanier);
+
+  // Mettez à jour le nombre de produits dans le panier
+  setNombreProduitsPanier(nouveauPanier.length);
+
+  // Enregistrez le panier dans le localStorage
+  localStorage.setItem('panier', JSON.stringify(nouveauPanier));
+  toast.success('Produit ajouté avec succès !', {
+    position: toast.POSITION.TOP_RIGHT,
+    autoClose: 2000, // Durée d'affichage du toast en millisecondes (2 secondes dans cet exemple)
+  });
+}
+
   // Utilisez useEffect pour observer la mise à jour du panier
 useEffect(() => {
   console.log("bbbbbbbbbb", panier);
 }, [panier]);
   
-  // const { addToCart } = useCart(); // Use the useCart hook
-
-  // const handleAddToCart = () => {
-  //   addToCart(product);
-  // };
 
   useEffect(() => {
     if (params.id) {
@@ -141,16 +127,10 @@ useEffect(() => {
             className="btn btn-primary">
               Ajouter au panier
             </button>
-
-         { show5 ?(
-          <>
-          <Panier panier={panier} lieu={lieu}/></>
-         ) :( <div className="nav-item">
         <Link to="/panier" className="nav-link">
           <FontAwesomeIcon icon={faShoppingCart} />
           <span className="badge badge-pill badge-primary">{nombreProduitsPanier}</span>
         </Link>
-      </div>)}
             {Allcomments.map((value,key)=>(
               <div key={key} className="bg-white" style={{ padding: 30, marginBottom: 30 }}>
               <h4 className="text-uppercase mb-4" style={{ letterSpacing: 5 }}>

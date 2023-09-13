@@ -14,6 +14,9 @@ import Product_info from "./components/Product_info";
 import Display_Product from "./components/Display_Product";
 import PanierLink from "./components/PanierLink";
 import { PanierProvider } from "./components/PanierContext";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 function App() {
   const [panier, setPanier] = useState([]);
@@ -52,6 +55,7 @@ function App() {
             
           </Routes>
       </BrowserRouter>
+      <ToastContainer />
       <Footer />
     </>
   );

@@ -1,23 +1,62 @@
-// CartContext.js
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
-import React, { createContext, useContext, useState } from 'react';
+// Créez un contexte pour le panier
+const PanierContext = createContext();
 
-const CartContext = createContext();
+// Créez un composant PanierProvider pour fournir le contexte
+export function PanierProvider({ children }) {
+  const [panier, setPanier] = useState([]);
+  const [nombreProduitsPanier, setNombreProduitsPanier] = useState(0);
 
-export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  useEffect(() => {
+    // Récupérez le panier depuis le localStorage lors de la première charge
+    const storedPanier = JSON.parse(localStorage.getItem('panier'));
+    if (storedPanier) {
+      setPanier(storedPanier);
+    }
+  }, []);
 
-  // const addToCart = (product) => {
-  //   setCart([...cart, product]);
-  // };
+  // Fonction pour ajouter un produit au panier
+  const ajouterAuPanier = (produitId) => {
+    const nouveauPanier = [...panier, produitId];
+    setPanier(nouveauPanier);
+    // Enregistrez le panier dans le localStorage
+    localStorage.setItem('panier', JSON.stringify(nouveauPanier));
+  };
+
+  // Fonction pour supprimer un produit du panier
+  const supprimerDuPanier = (produitId) => {
+    const nouveauPanier = panier.filter((id) => id !== produitId);
+    setPanier(nouveauPanier);
+    // Enregistrez le panier dans le localStorage
+    localStorage.setItem('panier', JSON.stringify(nouveauPanier));
+  };
+
+  // Fonction pour vider le panier
+  const viderLePanier = () => {
+    setPanier([]);
+    // Effacez le panier dans le localStorage
+    localStorage.removeItem('panier');
+  };
+
+  // Valeur du contexte à fournir aux composants enfants
+  const contextValue = {
+    panier,
+    ajouterAuPanier,
+    supprimerDuPanier,
+    viderLePanier,
+    nombreProduitsPanier: panier.length,
+  };
 
   return (
-    <CartContext.Provider value={{ cart }}>
+    <PanierContext.Provider value={contextValue}>
       {children}
-    </CartContext.Provider>
+    </PanierContext.Provider>
   );
-};
+}
 
-// export const useCart = () => {
-//   return useContext(CartContext);
-// };
+// Fonction personnalisée pour utiliser le contexte du panier
+export function usePanier() {
+  return useContext(PanierContext);
+}
+
