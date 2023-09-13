@@ -42,34 +42,18 @@ const [CurrentUser,setCurrentUser]=useState({})
           <div className="row">
             <div className="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
               <div className="d-inline-flex align-items-center">
-                <p>
-                  <i className="fa fa-envelope mr-2" />
-                  MaisonArt@gmail.com
-                </p>
+                <p>  <i className="fa fa-envelope mr-2" />  MaisonArt@gmail.com </p>
                 <p className="text-body px-3">|</p>
-                <p>
-                  <i className="fa fa-phone-alt mr-2" />
-                  +26 765 720
-                </p>
+                <p> <i className="fa fa-phone-alt mr-2" /> +26 765 720  </p>
               </div>
             </div>
             <div className="col-lg-6 text-center text-lg-right">
               <div className="d-inline-flex align-items-center">
-                <a className="text-primary px-3">
-                  <i className="fab fa-facebook-f" />
-                </a>
-                <a className="text-primary px-3">
-                  <i className="fab fa-twitter" />
-                </a>
-                <a className="text-primary px-3">
-                  <i className="fab fa-linkedin-in" />
-                </a>
-                <a className="text-primary px-3">
-                  <i className="fab fa-instagram" />
-                </a>
-                <a className="text-primary pl-3">
-                  <i className="fab fa-youtube" />
-                </a>
+                <a className="text-primary px-3">  <i className="fab fa-facebook-f" /> </a>
+                <a className="text-primary px-3">  <i className="fab fa-twitter" /> </a>
+                <a className="text-primary px-3">  <i className="fab fa-linkedin-in" /></a>
+                <a className="text-primary px-3">  <i className="fab fa-instagram" /> </a>
+                <a className="text-primary pl-3">  <i className="fab fa-youtube" />  </a>
               </div>
             </div>
           </div>
@@ -78,51 +62,27 @@ const [CurrentUser,setCurrentUser]=useState({})
       {/* Topbar End */}
       {/* Navbar Start */}
       <div className="container-fluid position-relative nav-bar p-0">
-        <div
-          className="container-lg position-relative p-0 px-lg-3"
-          style={{ zIndex: 9 }}
-        >
+        <div className="container-lg position-relative p-0 px-lg-3" style={{ zIndex: 9 }}   >
           <nav className="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
             <Link to="/" className="navbar-brand">
               <h1 className="m-0 text-primary">
                 <span className="text-dark">Maison</span>Art
               </h1>
             </Link>
-            <button
-              type="button"
-              className="navbar-toggler"
+            <button type="button" className="navbar-toggler"
               data-toggle="collapse"
               data-target="#navbarCollapse"
             >
               <span className="navbar-toggler-icon" />
             </button>
-            <div
-              className="collapse navbar-collapse justify-content-between px-3"
-              id="navbarCollapse"
-            >
+            <div className="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse" >
 
               {CurrentUser.role==="admin"?(
                  <div className="navbar-nav ml-auto py-0">
+                 <Link to="/product" className="nav-item nav-link">  Product </Link>
+                 <Link to="/panier" className="nav-link"> Panier 
 
-                 <Link to="/" className="nav-item nav-link active">
-                   {" "}
-                   Home{" "}
-                 </Link>
-                 <Link to="/product" className="nav-item nav-link">
-                   product
-                 </Link>
-                 <Link to="/Add_Prodcut" className="nav-item nav-link">
-                   Add product
-                 </Link>
-                 <Link to="/TableProduct" className="nav-item nav-link">
-                   Table product
-                 </Link>
- 
-                 <Link to="/contact" className="nav-item nav-link">
-                   Contact
-                 </Link>
-                 <Link to="/panier" className="nav-link">
-        <FontAwesomeIcon icon={faShoppingCart} />
+        <FontAwesomeIcon icon={faShoppingCart}  />
         <span className="badge badge-pill badge-primary">{nombreProduitsPanier}</span>
       </Link>
                  {/* <div className="nav-item">
@@ -157,48 +117,23 @@ const [CurrentUser,setCurrentUser]=useState({})
             >
             </div>
           </Button> */}
-                 <a onClick={logout}  className="nav-item nav-link">
-                  logOut
-                </a>
+                 <a onClick={logout}  className="nav-item nav-link"> LogOut </a>
                </div>
+
               ):CurrentUser.role=== "user"?(
                 <div className="navbar-nav ml-auto py-0">
-
-                <Link to="/" className="nav-item nav-link active">
-                  {" "}
-                  Home{" "}
-                </Link>
-                <Link to="/product" className="nav-item nav-link">
-                product
-                </Link>
-                
-                <Link to="/contact" className="nav-item nav-link">
-                  Contact
-                </Link>
-
-                <a onClick={logout}  className="nav-item nav-link">
-                  logOut
-                </a>
-               
+                <Link to="/" className="nav-item nav-link active"> {" "} Home{" "}</Link>
+                <Link to="/product" className="nav-item nav-link"> product </Link>
+                <Link to="/contact" className="nav-item nav-link"> Contact </Link>
+                <Link to="/panier" className="nav-link"> panier </Link>
+                <a onClick={logout}  className="nav-item nav-link"> logOut</a>
               </div>
-              ):(  <div className="navbar-nav ml-auto py-0">
-
-              <Link to="/" className="nav-item nav-link active">
-                {" "}
-                Home{" "}
-              </Link>
-          
-
-              <Link to="/contact" className="nav-item nav-link">
-                Contact
-              </Link>
-
-              <Link to="/signup" className="nav-item nav-link">
-                Sign up
-              </Link>
-              <Link to="/login" className="nav-item nav-link">
-                Login
-              </Link>
+              ):(  
+              <div className="navbar-nav ml-auto py-0">
+              <Link to="/" className="nav-item nav-link active"> {" "} Home{" "}  </Link>
+              <Link to="/contact" className="nav-item nav-link"> Contact</Link>
+              <Link to="/signup" className="nav-item nav-link"> Sign up</Link>
+              <Link to="/login" className="nav-item nav-link">Login </Link>
             </div>)}
 
              

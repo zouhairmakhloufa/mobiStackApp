@@ -29,6 +29,8 @@ export default function Table_Product() {
       <h6 className="text-primary text-uppercase" style={{letterSpacing: 5}}></h6>
       <h1>Table product</h1>
     </div>
+    <button className="btn btn-primary" onClick={() => navigate("/Add_Prodcut" )}> Add product</button>
+
     <div className="row justify-content-center">
       <div className="col-lg-12">
       <table class="table">
@@ -48,18 +50,8 @@ export default function Table_Product() {
               <td>{data.address}</td>
               <td>{data.description}</td>
               <td>
-                <button
-                  className="btn btn-primary"
-                  onClick={() => navigate("/EditLieu/" + data._id)}
-                >
-                  Edit
-                </button>
-                <button
-                  className="btn btn-danger"
-                  onClick={() => deleteLieu(data._id)}
-                >
-                  Delete
-                </button>
+                <button className="btn btn-primary" onClick={() => navigate("/EditLieu/" + data._id)}> Edit </button>
+                <button className="btn btn-danger" onClick={() => deleteLieu(data._id)}> Delete </button>
               </td>
             </tr>
           ))}

@@ -4,7 +4,7 @@ const Panier = ({ panier }) => {
   if (!panier || panier.length === 0) {
     return (
       <div className="container">
-        <h1>Mon Panier</h1>
+        <h1> Panier</h1>
         <p>Votre panier est vide.</p>
       </div>
     );
