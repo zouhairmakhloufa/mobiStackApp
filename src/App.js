@@ -48,7 +48,7 @@ function App() {
             <Route path="/product_info/:id" element={<Product_info />} />
             <Route
               path="/panier"
-              element={show5 ? <PanierLink panier={panier} /> : <Panier panier={panier} />}
+              element={show5 ? <PanierLink panier={panier} /> : <Panier panier={panier} setPanier={setPanier} />}
             />
 
             {/* <Route path="/panier" element={<Panier />} /> */}

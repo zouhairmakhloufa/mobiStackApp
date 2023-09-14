@@ -50,7 +50,7 @@ const Login = ({ addConnectedUser }) => {
       if (user.data.message === "2") {
         // localStorage.setItem("connectedUser", JSON.stringify(user.data.user));
         addConnectedUser(user.data.user);
-        navigate("/");
+        navigate("/TableProduct");
         setmsgErr("");
         toast.success("Login successful!", {
           position: toast.POSITION.TOP_RIGHT,

@@ -13,8 +13,6 @@ import { usePanier } from "./PanierContext";
  const Header=({ user,deleteConnectedUser, })=> {
   // const { nombreProduitsPanier } = usePanier(); // Accédez à nombreProduitsPanier depuis le contexte
   const { nombreProduitsPanier } = usePanier(); // Accédez à nombreProduitsPanier depuis le contexte
-console.log("ssssssssss",nombreProduitsPanier)
-  const [panier, setPanier] = useState([]);
 const [CurrentUser,setCurrentUser]=useState({})
 
 // const quantity = useSelector(state=>state.cart.quantity)
@@ -111,9 +109,9 @@ const [CurrentUser,setCurrentUser]=useState({})
                  <Link to="/product" className="nav-item nav-link">
                    product
                  </Link>
-                 <Link to="/Add_Prodcut" className="nav-item nav-link">
+                 {/* <Link to="/Add_Prodcut" className="nav-item nav-link">
                    Add product
-                 </Link>
+                 </Link> */}
                  <Link to="/TableProduct" className="nav-item nav-link">
                    Table product
                  </Link>

@@ -1,4 +1,7 @@
-const Panier = ({ panier }) => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+const Panier = ({ panier,setPanier }) => {
+
   console.log("777777777",panier)
   // Vérification pour éviter l'erreur
   if (!panier || panier.length === 0) {
@@ -9,10 +12,29 @@ const Panier = ({ panier }) => {
       </div>
     );
   }
+  
 
+  const handleRemoveFromCart = (index) => {
+    const updatedCart = [...panier];
+    updatedCart.splice(index, 1);
+  
+    // Mettez à jour le panier avec la nouvelle copie
+    setPanier(updatedCart);
+  
+    // Mettez à jour le nombre de produits dans le panier
+    // setNombreProduitsPanier(updatedCart.length);
+  
+    // Mettez à jour le localStorage
+    localStorage.setItem('panier', JSON.stringify(updatedCart));
+  };
+  
   return (
-    <div className="container">
-      <h1>Mon Panier</h1>
+    <div className="container"style={{display: "flex",
+      gap: "50px",
+      alignItems: "center",
+      justifyContent: "center",
+      marginTop: "65px"}}>
+      {/* <h1>Mon Panier</h1> */}
       {panier.map((item, k) => (
         <div className="pb-3" key={k} style={{width:"50%"}}>
           <div className="blog-item">
@@ -39,6 +61,14 @@ const Panier = ({ panier }) => {
           </div>
           <div>
             <button className="btn btn-success">Passer Le Commande</button>
+            <button
+          className="btn btn-danger"
+           onClick={() => handleRemoveFromCart(k)} // Assurez-vous de gérer la suppression
+       
+        >
+             <FontAwesomeIcon icon={faTimes} />
+          Supprimer
+        </button>
           </div>
         </div>
       ))}
