@@ -118,7 +118,7 @@ useEffect(() => {
                     {lieu.address}
                   </a>
                 </div>
-                <h2 className="mb-3">Description Lieu</h2>
+                <h3 className="mb-3">Description Product</h3>
                 <p>{lieu.description}</p>
               </div>
             </div>

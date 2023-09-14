@@ -74,9 +74,9 @@ export default function Table_Product() {
                 >
                   Delete
                 </button>
-                {/* <Link to="/Add_Prodcut" className="nav-item nav-link">
+                <Link to="/Add_Prodcut" className="nav-item nav-link">
                    Add product
-                 </Link> */}
+                 </Link>
                 
               </td>
               <td> <Link to="/Add_Prodcut" className="nav-item nav-link"><button
