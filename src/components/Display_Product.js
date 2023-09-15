@@ -85,22 +85,25 @@ const totalPages = Math.ceil(totalProducts / productsPerPage);
       <div className="container py-5">
         <div className="row">
         <div className="col-lg-12">
+
           <input
             type="text"
-            placeholder="Search..."
+            placeholder="Search product ..."
             value={searchTerm}
             onChange={handleSearchChange}
-            style={{border:"1px solid lightgray", marginBottom:"2.8rem",height:"30px",borderRadius:"3px"}}
+            style={{border:"1px solid lightgray", marginBottom:"1rem",height:"40px", width:"300px",borderRadius:"6px"}}
           />
+           <Link to="/Add_Prodcut" className="nav-item nav-link"
+            style={{marginBottom:"1rem",}}
+            > Add product </Link>
         </div>
           <div className="col-lg-12">
             <div className="row pb-3" style={{gap:"70px"}}>
               {filteredProducts.map((lieu, key) => (
-                <div className="card" style={{width: '20rem', flexWrap:"wrap"}} onClick={()=>navigate("/product_info/"+lieu._id)}>
+                <div className="card" style={{width: '330px', flexWrap:"wrap"}} onClick={()=>navigate("/product_info/"+lieu._id)}>
                 <img className="card-img-top" src={lieu.image} alt="Card image cap"/>
                 <div className="card-body">
-                  <h5 className="card-title">Tuni</h5>
-                  <p className="card-text">sia.</p>
+                
                   {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
                   <div className="bg-white p-4">
                       <div className="d-flex mb-2">
@@ -112,7 +115,7 @@ const totalPages = Math.ceil(totalProducts / productsPerPage);
                           {lieu.address}
                         </Link>
                       </div>
-                      <a to={"/product_info/"+lieu._id} className="h5 m-0 text-decoration-none">
+                      <a to={"/product_info/"+lieu._id} className="h5  m-0 text-decoration-none">
                         {lieu.description}
                       </a>
                     </div>
