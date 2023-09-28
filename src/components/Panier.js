@@ -7,8 +7,8 @@ const Panier = ({ panier,setPanier }) => {
   if (!panier || panier.length === 0) {
     return (
       <div className="container">
-        <h1> Panier</h1>
-        <p>Votre panier est vide.</p>
+        <h1> Panier</h1> <br/>
+        <h2>Votre panier est vide.</h2>
       </div>
     );
   }
@@ -39,14 +39,14 @@ const Panier = ({ panier,setPanier }) => {
         <div className="pb-3" key={k} style={{width:"50%"}}>
           <div className="blog-item">
             <div className="position-relative">
-              <img className="img-fluid w-100" src={item?.image} alt="" />
+              <img className="cc" src={item?.image} alt="" />
               <div className="blog-date">
                 <h6 className="font-weight-bold mb-n1">01</h6>
                 <small className="text-white text-uppercase">Jan</small>
               </div>
             </div>
           </div>
-          <div className="bg-white mb-3" style={{ padding: 30 }}>
+          <div className="bg-white mb-3" style={{ padding: 20 , width: 350 }}>
             <div className="d-flex mb-3">
               <a className="text-primary text-uppercase text-decoration-none">
                 {item?.name}

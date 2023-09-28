@@ -26,7 +26,7 @@ const [CurrentUser,setCurrentUser]=useState({})
     deleteConnectedUser();
 
     setTimeout(() => {
-      navigate("");
+      navigate("/login");
     }, 1000);
   };
   // const { cart } = useCart();

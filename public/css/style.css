@@ -527,7 +527,7 @@ mark,
 
 .img-fluid {
   max-width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .img-thumbnail {
@@ -7270,7 +7270,10 @@ button.bg-dark:focus {
 .w-100 {
   width: 100% !important;
 }
-
+.cc{
+  width: 350px;
+  height: 300px;
+}
 .w-auto {
   width: auto !important;
 }
@@ -7560,7 +7563,7 @@ button.bg-dark:focus {
 }
 
 .p-4 {
-  padding: 0rem !important;
+  padding: 1rem !important;
 }
 
 .pt-4,

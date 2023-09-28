@@ -50,7 +50,7 @@ const Login = ({ addConnectedUser }) => {
       if (user.data.message === "2") {
         // localStorage.setItem("connectedUser", JSON.stringify(user.data.user));
         addConnectedUser(user.data.user);
-        navigate("/TableProduct");
+        navigate("/");
         setmsgErr("");
         toast.success("Login successful!", {
           position: toast.POSITION.TOP_RIGHT,
@@ -68,11 +68,6 @@ const Login = ({ addConnectedUser }) => {
     }
   };
   
-  
-  
-  
-  
-  
   return (
     <div
       className="container-fluid bg-registration py-5"
@@ -82,10 +77,8 @@ const Login = ({ addConnectedUser }) => {
         <div className="row align-items-center">
           <div className="col-lg-7 mb-5 mb-lg-0">
             <div className="mb-4">
-              <h6
-                className="text-primary text-uppercase"
-                style={{ letterSpacing: 5 }}
-              ></h6>
+              <h6 className="text-primary text-uppercase"  style={{ letterSpacing: 5 }}>
+              </h6>
               <h1 className="text-white">
                 <span className="text-primary">Login</span> Page
               </h1>
@@ -111,7 +104,7 @@ const Login = ({ addConnectedUser }) => {
                   </div>
                   <div className="form-group">
                     <input
-                      type="email"
+                      type="Password"
                       className="form-control p-4"
                       placeholder="Your Password"
                       required="required"
