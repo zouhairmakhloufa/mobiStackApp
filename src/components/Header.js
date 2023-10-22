@@ -11,12 +11,9 @@ import { usePanier } from "./PanierContext";
 
 
  const Header=({ user,deleteConnectedUser, })=> {
-  // const { nombreProduitsPanier } = usePanier(); // Accédez à nombreProduitsPanier depuis le contexte
-  const { nombreProduitsPanier } = usePanier(); // Accédez à nombreProduitsPanier depuis le contexte
 const [CurrentUser,setCurrentUser]=useState({})
 
-// const quantity = useSelector(state=>state.cart.quantity)
-// console.log("rrrrr",quantity)
+
   useEffect(() => {
      setCurrentUser(user)
   }, [user]);
@@ -78,25 +75,11 @@ const [CurrentUser,setCurrentUser]=useState({})
               {CurrentUser.role==="admin"?(
                  <div className="navbar-nav ml-auto py-0">
 
-                 <Link to="/" className="nav-item nav-link active">
-                   {" "}
-                   Home{" "}
-                 </Link>
-                 <Link to="/product" className="nav-item nav-link">
-                   product
-                 </Link>
-                 <Link to="/TableProduct" className="nav-item nav-link">
-                   Table product
-                 </Link>
- 
-                 <Link to="/contact" className="nav-item nav-link">
-                   Contact
-                 </Link>
-                 <Link to="/panier" className="nav-link">
-        <FontAwesomeIcon icon={faShoppingCart} />
-        <span className="badge badge-pill badge-primary">{nombreProduitsPanier}</span>
-      </Link>
-             
+                 <Link to="/" className="nav-item nav-link active"> {" "} Home{" "}</Link>
+                 <Link to="/product" className="nav-item nav-link"> product  </Link>
+                 <Link to="/TableProduct" className="nav-item nav-link">  Table product</Link>
+                 <Link to="/contact" className="nav-item nav-link"> Contact </Link>
+                 <Link to="/panier" className="nav-link"> <FontAwesomeIcon icon={faShoppingCart} /> Panier  </Link>
                  <a onClick={logout}  className="nav-item nav-link"> LogOut </a>
                </div>
 
