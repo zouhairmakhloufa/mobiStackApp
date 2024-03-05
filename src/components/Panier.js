@@ -53,7 +53,7 @@ const Panier = ({ panier,setPanier }) => {
               </a>
               <span className="text-primary px-2">|</span>
               <a className="text-primary text-uppercase text-decoration-none">
-                {item?.address}
+                {item?.problem}
               </a>
             </div>
             <h2 className="mb-3">Description Lieu</h2>

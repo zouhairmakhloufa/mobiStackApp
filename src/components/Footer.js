@@ -7,9 +7,10 @@ export default function Footer() {
     <div className="row pt-5">
       <div className="col-lg-3 col-md-6 mb-5">
         <a href className="navbar-brand">
-          <h1 className="text-primary"><span className="text-white">Maison</span>Art</h1>
+          <h1 className="text-primary"><span className="text-white">mobi</span>Stack</h1>
         </a>
-        <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor</p>
+        <p>
+Notre plateforme favorise les techniques permettant de résoudre rapidement les problèmes techniques de développement</p>
         <h6 className="text-white text-uppercase mt-4 mb-3" style={{letterSpacing: 5}}>Follow Us</h6>
         <div className="d-flex justify-content-start">
           <a className="btn btn-outline-primary btn-square mr-2" href="#"><i className="fab fa-twitter" /></a>
@@ -44,9 +45,9 @@ export default function Footer() {
       </div>
       <div className="col-lg-3 col-md-6 mb-5">
         <h5 className="text-white text-uppercase mb-4" style={{letterSpacing: 5}}>Contact Us</h5>
-        <p><i className="fa fa-map-marker-alt mr-2" />Eljem Mahdia</p>
+        <p><i className="fa fa-map-marker-alt mr-2" />Monastir</p>
         <p><i className="fa fa-phone-alt mr-2" />+216 26 765 720</p>
-        <p><i className="fa fa-envelope mr-2" />Maisonart@gmail.com</p>
+        <p><i className="fa fa-envelope mr-2" />mobiStack@gmail.com</p>
         <h6 className="text-white text-uppercase mt-4 mb-3" style={{letterSpacing: 5}}>Newsletter</h6>
         <div className="w-100">
           <div className="input-group">

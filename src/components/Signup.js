@@ -7,7 +7,7 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   const onSubmit = async (event) => {
     let role = "";
@@ -25,7 +25,7 @@ export default function Signup() {
       );
       toast("lOGIN SUCCESSFULY")
       console.log("user", user);
-    } catch (err) {}
+    } catch (err) { }
     setEmail("");
     setPassword("");
     setConfirmPassword("");
@@ -62,10 +62,10 @@ export default function Signup() {
               </h1>
             </div>
             <p className="text-white">
-            
+
             </p>
             <ul className="list-inline text-white m-0">
-            
+
             </ul>
           </div>
           <div className="col-lg-5">
@@ -82,7 +82,7 @@ export default function Signup() {
                       placeholder="Your email"
                       required="required"
                       value={email}
-          onChange={handleEmailChange}
+                      onChange={handleEmailChange}
                     />
                   </div>
                   <div className="form-group">
@@ -92,7 +92,7 @@ export default function Signup() {
                       placeholder="Your Password"
                       required="required"
                       value={password}
-          onChange={handlePasswordChange}
+                      onChange={handlePasswordChange}
                     />
                   </div>
                   <div className="form-group">
