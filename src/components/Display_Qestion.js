@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
 export default function Display_Product() {
   const navigate = useNavigate();
   const [qest, setQest] = useState([]);
@@ -15,10 +14,10 @@ export default function Display_Product() {
   const currentProducts = qest.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalProducts = qest.length;
   const totalPages = Math.ceil(totalProducts / productsPerPage);
+
   useEffect(() => {
     getAllQest();
-  }, []);
-
+  }, [searchTerm]);
 
   const renderPageButtons = () => {
     const buttons = [];
@@ -40,18 +39,15 @@ export default function Display_Product() {
 
   const getAllQest = () => {
     axios.get("http://localhost:5000/qest/get").then((res) => {
-      console.log("res.data.qest", res.data.qest);
       const filteredQest = res.data.qest.filter((qest) =>
-      qest.name.toLowerCase().includes(searchTerm.toLowerCase())
+        qest.name && qest.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
-      // setQest(res.data.qest);
       setQest(filteredQest);
     });
   };
 
-
   const nextPage = () => {
-    if (currentPage < Math.ceil(qest.length / productsPerPage)) {
+    if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
   };
@@ -61,52 +57,46 @@ export default function Display_Product() {
       setCurrentPage(currentPage - 1);
     }
   };
+
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
 
-  const filteredProducts = qest.filter((qest) =>
-  qest.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
   return (
     <div className="container-fluid py-5">
       <div className="container py-5">
         <div className="row">
-          
           <div className="col-lg-12">
             <Link to="/Add_Prodcut" className="btn btn-primary py-md-6 px-md-1 mt-1"> Add Question </Link>
             <br></br>
             <input
               type="text"
-              placeholder="Search Qestion ..."
+              placeholder="Search Question ..."
               value={searchTerm}
               onChange={handleSearchChange}
               style={{ border: "1px solid lightgray", marginBottom: "1rem", height: "40px", width: "300px", borderRadius: "6px" }}
             />
           </div>
 
-
           <div className="col-lg-6">
             <div className="row pb-3" style={{ gap: "70px" }}>
-              {filteredProducts.map((qest, key) => (
-                <div className="card" style={{ width: '800px', flexWrap: "wrap" }} onClick={() => navigate("/Qestion_info/" + qest._id)}>
+              {currentProducts.map((qest, key) => (
+                <div key={key} className="card" style={{ width: '800px', flexWrap: "wrap" }} onClick={() => navigate("/Qestion_info/" + qest._id)}>
                   <img className="img-fluidd w-100" src={qest.image} alt="Card image cap" />
                   <div className="card-body">
-
-                    {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
                     <div className="bg-white p-4">
                       <div className="d-flex mb-2">
                         <Link to={"/Qestion_info/" + qest._id} className="text-primary text-uppercase text-decoration-none">
                           {qest.name}
                         </Link>
                         <span className="text-primary px-2">|</span>
-                        <Link className="text-primary text-uppercase text-decoration-none">
+                        <span className="text-primary text-uppercase text-decoration-none">
                           {qest.address}
-                        </Link>
+                        </span>
                       </div>
-                      <a to={"/Qestion_info/" + qest._id} className="h5  m-0 text-decoration-none">
+                      <Link to={"/Qestion_info/" + qest._id} className="h5 m-0 text-decoration-none">
                         {qest.description}
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -124,7 +114,7 @@ export default function Display_Product() {
               disabled={currentPage === 1}
               style={{ borderRadius: '3px' }}
             >
-              Précédent
+              Previous
             </button>
             {renderPageButtons()}
             <button
@@ -133,7 +123,7 @@ export default function Display_Product() {
               disabled={currentPage === totalPages}
               style={{ borderRadius: '3px' }}
             >
-              Suivant
+              Next
             </button>
           </div>
         </div>

@@ -77,7 +77,7 @@ export default function Add_Qestion() {
     }
 
     setTimeout(() => {
-      navigate("/product");
+      navigate("/qestion");
     }, 1000);
   };
 
