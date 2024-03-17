@@ -70,7 +70,7 @@ const Qestion_info = ({ user, product }) => {
                     {qest.address}
                   </a>
                 </div>
-                <h3 className="mb-3">Description Product</h3>
+                <h3 className="mb-3">Description Qestion</h3>
                 <p>{qest.description}</p>
               </div>
             </div>

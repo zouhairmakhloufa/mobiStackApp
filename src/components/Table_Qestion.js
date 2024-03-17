@@ -22,25 +22,13 @@ export default function Table_Qestion() {
       getAllQest();
     });
   };
-  // const isAdmin = async () => {
-  //   const response = await axios.get("http://localhost:5000/user/isAdmin");
-  //   if (response.status === 200 && response.data.isAdmin) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // };
-
-  // if (! isAdmin()) {
-  //   navigate("/");
-  // }
+ 
   return (
     <div className="container-fluid py-5">
       <div className="container py-5">
         <div className="text-center mb-3 pb-3">
           <h6 className="text-primary text-uppercase" style={{ letterSpacing: 5 }}></h6>
-          <h1>Table Question</h1>
-          <Link to="/Add_Prodcut" className="nav-item nav-link"> Add Question </Link>
+          <h1>Table Qestion</h1>
         </div>
         <div className="row justify-content-center">
           <div className="col-lg-12">
@@ -61,30 +49,19 @@ export default function Table_Qestion() {
                     <td>{data.address}</td>
                     <td>{data.description}</td>
                     <td>
-                      <button
-                        className="btn btn-primary"
-                        onClick={() => navigate("/EditProduct/" + data._id)}
-                      >
+                      <button className="btn btn-primary" onClick={() => navigate("/EditQestion/" + data._id)}>
                         Edit
                       </button>
-                      <button
-                        className="btn btn-danger"
-                        onClick={() => deleteQest(data._id)}
-                        style={{ marginLeft: "10px" }}
-                      >
+                      <button className="btn btn-danger" onClick={() => deleteQest(data._id)}
+                        style={{ marginLeft: "10px" }} >
                         Delete
                       </button>
-                      <Link to="/Add_Prodcut" className="nav-item nav-link">
-                        Add Qestion
-                      </Link>
 
                     </td>
-                    <td> <Link to="/Add_Prodcut" className="nav-item nav-link"><button
-                      className="btn btn-info"
-                      style={{ marginTop: "-10px" }}
-                    >
-                      Add Qestion
-                    </button></Link></td>
+                    <td> <Link to="/Add_Qestion" className="nav-item nav-link">
+                      <button className="btn btn-info" style={{ marginTop: "-7px", marginLeft: "-210px" }} >
+                        Add Qestion
+                      </button></Link></td>
                   </tr>
                 ))}
               </tbody>

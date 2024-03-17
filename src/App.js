@@ -11,6 +11,7 @@ import Qestion_info from "./components/Qestion_info";
 import Display_Qestion from "./components/Display_Qestion";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Paths } from "./navigation/Path.ts";
 
 function App() {
   return (
@@ -18,15 +19,15 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/signup/admin" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/TableQestion" element={<Table_Qestion />} />
-          <Route path="/Add_Prodcut" element={<Add_Qestion />} />
-          <Route path="/EditProduct/:id" element={<Add_Qestion />} />
-          <Route path="/qestion" element={<Display_Qestion />} />
-          <Route path="/Qestion_info/:id" element={<Qestion_info />} />
+          <Route path={Paths.HOME}exact element={<Home />} />
+          <Route path={Paths.SIGNUP} element={<Signup />} />
+          <Route path={Paths.SIGNUP_ADMIN} element={<Signup />} />
+          <Route path={Paths.LOGIN} element={<Login />} />
+          <Route path={Paths.TABLE_QESTION} element={<Table_Qestion />} />
+          <Route path={Paths.ADD_Qestion} element={<Add_Qestion />} />
+          <Route path={Paths.EDIT_Qestion} element={<Add_Qestion />} />
+          <Route path={Paths.QESTION} element={<Display_Qestion />} />
+          <Route path={Paths.QESTION_INFO} element={<Qestion_info />} />
 
         </Routes>
       </BrowserRouter>

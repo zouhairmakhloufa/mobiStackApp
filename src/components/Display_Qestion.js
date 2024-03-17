@@ -117,12 +117,7 @@ export default function Display_Product() {
               Previous
             </button>
             {renderPageButtons()}
-            <button
-              className="page-button"
-              onClick={nextPage}
-              disabled={currentPage === totalPages}
-              style={{ borderRadius: '3px' }}
-            >
+            <button className="page-button" onClick={nextPage} disabled={currentPage === totalPages} style={{ borderRadius: '3px' }}>
               Next
             </button>
           </div>
