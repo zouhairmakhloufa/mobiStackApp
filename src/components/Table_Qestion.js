@@ -28,7 +28,7 @@ export default function Table_Qestion() {
       <div className="container py-5">
         <div className="text-center mb-3 pb-3">
           <h6 className="text-primary text-uppercase" style={{ letterSpacing: 5 }}></h6>
-          <h1>Table Qestion</h1>
+          <h1>Table Admin</h1>
         </div>
         <div className="row justify-content-center">
           <div className="col-lg-12">
@@ -58,10 +58,13 @@ export default function Table_Qestion() {
                       </button>
 
                     </td>
-                    <td> <Link to="/Add_Qestion" className="nav-item nav-link">
-                      <button className="btn btn-info" style={{ marginTop: "-7px", marginLeft: "-210px" }} >
-                        Add Qestion
-                      </button></Link></td>
+                    <td> <button
+                      className="btn btn-info"
+                      style={{ marginLeft: "-160px" }}
+                    >
+                      Add Qestion
+                    </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>

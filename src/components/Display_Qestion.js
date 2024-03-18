@@ -67,15 +67,17 @@ export default function Display_Product() {
       <div className="container py-5">
         <div className="row">
           <div className="col-lg-12">
-            <Link to="/Add_Prodcut" className="btn btn-primary py-md-6 px-md-1 mt-1"> Add Question </Link>
-            <br></br>
-            <input
-              type="text"
-              placeholder="Search Question ..."
-              value={searchTerm}
-              onChange={handleSearchChange}
-              style={{ border: "1px solid lightgray", marginBottom: "1rem", height: "40px", width: "300px", borderRadius: "6px" }}
-            />
+            <Link to="/Add_Qestion" className="btn btn-primary py-md-6 px-md-1 mt-1"> Add Question </Link>
+
+            <div>
+              <input
+                type="text"
+                placeholder="Search Question ..."
+                value={searchTerm}
+                onChange={handleSearchChange}
+                style={{ border: "1px solid lightgray", marginBottom: "1rem", height: "40px", width: "300px", borderRadius: "6px" }}
+              />
+            </div>
           </div>
 
           <div className="col-lg-6">

@@ -68,10 +68,8 @@ const [CurrentUser,setCurrentUser]=useState({})
               {CurrentUser.role==="admin"?(
                  <div className="navbar-nav ml-auto py-0">
 
-                 <Link to="/" className="nav-item nav-link active"> {" "} Home{" "}</Link>
-                 <Link to="/qestion" className="nav-item nav-link"> Question  </Link>
+                
                  <Link to="/TableQestion" className="nav-item nav-link">  Table Question</Link>
-                 <Link to="/contact" className="nav-item nav-link"> Contact </Link>
                  <a onClick={logout}  className="nav-item nav-link"> LogOut </a>
                </div>
 
@@ -79,18 +77,17 @@ const [CurrentUser,setCurrentUser]=useState({})
                 <div className="navbar-nav ml-auto py-0">
                 <Link to="/" className="nav-item nav-link active"> {" "} Home{" "}</Link>
                 <Link to="/qestion" className="nav-item nav-link"> Question </Link>
-                <Link to="/contact" className="nav-item nav-link"> Contact </Link>
+                <Link to="/Contact" className="nav-item nav-link"> Contact </Link>
                 <a onClick={logout}  className="nav-item nav-link"> logOut</a>
               </div>
               ):(  
               <div className="navbar-nav ml-auto py-0">
               <Link to="/" className="nav-item nav-link active"> {" "} Home{" "}  </Link>
-              <Link to="/contact" className="nav-item nav-link"> Contact</Link>
+              <Link to="/Contact" className="nav-item nav-link"> Contact</Link>
               <Link to="/signup" className="nav-item nav-link"> Sign up</Link>
               <Link to="/login" className="nav-item nav-link">Login </Link>
             </div>)}
 
-             
             </div>
           </nav>
         </div>

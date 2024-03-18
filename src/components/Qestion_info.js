@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -55,8 +55,8 @@ const Qestion_info = ({ user, product }) => {
                 <div className="position-relative">
                   <img className="img-fluid w-100" src={qest.image} />
                   <div className="blog-date">
-                    <h6 className="font-weight-bold mb-n1">01</h6>
-                    <small className="text-white text-uppercase">Jan</small>
+                    <h6 className="font-weight-bold mb-n1">18</h6>
+                    <small className="text-white text-uppercase">Mars</small>
                   </div>
                 </div>
               </div>
@@ -75,8 +75,6 @@ const Qestion_info = ({ user, product }) => {
               </div>
             </div>
 
-            <Link to="/panier" className="nav-link">
-            </Link>
             {Allcomments.map((value, key) => (
               <div key={key} className="bg-white" style={{ padding: 30, marginBottom: 30 }}>
                 <h4 className="text-uppercase mb-4" style={{ letterSpacing: 5 }}>

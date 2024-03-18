@@ -12,6 +12,8 @@ import Display_Qestion from "./components/Display_Qestion";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Paths } from "./navigation/Path.ts";
+import ContactPage from "./components/Contact.js";
+
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route path={Paths.EDIT_Qestion} element={<Add_Qestion />} />
           <Route path={Paths.QESTION} element={<Display_Qestion />} />
           <Route path={Paths.QESTION_INFO} element={<Qestion_info />} />
+          <Route path={Paths.CONTACT} element={<ContactPage />} />
+
 
         </Routes>
       </BrowserRouter>

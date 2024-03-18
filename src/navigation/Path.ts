@@ -7,5 +7,7 @@ export const Paths ={
     ADD_Qestion : "/Add_Qestion",
     EDIT_Qestion : "/EditQestion/:id",
     QESTION : "/qestion",
-    QESTION_INFO : "/Qestion_info/:id"
+    QESTION_INFO : "/Qestion_info/:id",
+    CONTACT : "/Contact"
+
 }
